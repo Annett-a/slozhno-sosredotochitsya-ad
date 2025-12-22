@@ -41,11 +41,12 @@
 }
 
 .title-decor {
-    display: inline;
-    padding-inline: 0.25em;
+    display: inline-block;
+    padding-inline: 10px;
     background-color: var(--accent-color);
     color: var(--title-decor-text-color);
     font-weight: var(--font-weight-bold);
+    -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
 }
 
@@ -75,7 +76,7 @@
 
 .header {
     display: grid;
-    grid-template-rows: 1fr min-content 1fr;
+    grid-template-rows: min-content 1fr min-content;
     align-items: start;
 }
 
@@ -103,7 +104,6 @@
 
 .header__theme-menu {
     justify-self: end;
-    align-self: start;
 }
 
 .header__theme-menu-list {
@@ -157,8 +157,7 @@
 
 .header__subtitle {
     justify-self: end;
-    align-self: end;
-    max-inline-size: 355px;
+    max-inline-size: 364px;
 }
 
 .content {
@@ -247,34 +246,18 @@
         --gallery-gap: 20px;
     }
 
-    .header,
-    .footer {
-        min-block-size: 1024px;
-    }
-
     .header__title {
         font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    }
-
-    .header__subtitle {
-        max-inline-size: 364px;
-    }
-
-    .content {
-        padding-block: 60px;
     }
 
     .content-section {
         grid-template-columns: 236px 1fr;
         column-gap: 20px;
+        align-items: start;
     }
 
-    .content-section_type_gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .content-section_type_gallery .content-section__title,
-    .content-section_type_gallery .gallery {
+    .content-section > .content-section__title,
+    .content-section > .gallery {
         grid-column: 1 / -1;
     }
 
@@ -309,9 +292,8 @@
 }
 
 @media (min-width: 1024px) {
-    .header,
-    .footer {
-        min-block-size: 768px;
+    .content-section {
+        grid-template-columns: 315px 1fr;
     }
 
     .header__theme-menu {
@@ -320,10 +302,6 @@
 
     .header__theme-menu-list {
         flex-direction: row;
-    }
-
-    .content-section {
-        grid-template-columns: 315px 1fr;
     }
 
     .content-section__body_grid-3 {

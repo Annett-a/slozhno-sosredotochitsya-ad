@@ -245,8 +245,17 @@
         --gallery-gap: 20px;
     }
 
+    .header,
+    .footer {
+        min-block-size: 1024px;
+    }
+
     .header__title {
         font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    }
+
+    .content {
+        padding-block: 60px;
     }
 
     .content-section {
@@ -294,6 +303,11 @@
 }
 
 @media (min-width: 1024px) {
+    .header,
+    .footer {
+        min-block-size: 768px;
+    }
+
     .content-section {
         grid-template-columns: 315px 1fr;
     }
